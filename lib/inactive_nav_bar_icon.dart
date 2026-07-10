@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islami/app_theme.dart';
 
 class InactiveNavBarIcon extends StatelessWidget {
   String iconName;
@@ -13,7 +14,7 @@ class InactiveNavBarIcon extends StatelessWidget {
       height: 28,
       width: 28,
       fit: .scaleDown,
-      colorFilter: ColorFilter.mode(Color(0xFF202020), BlendMode.srcIn),
+      colorFilter: ColorFilter.mode(AppTheme.black, BlendMode.srcIn),
     );
   }
 }
