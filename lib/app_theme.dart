@@ -21,5 +21,10 @@ class AppTheme {
       showUnselectedLabels: false,
       selectedItemColor: black,
     ),
+    textTheme: TextTheme(
+      titleLarge: TextStyle(fontSize: 20, fontWeight: .bold, color: white),
+      titleMedium: TextStyle(fontSize: 16, fontWeight: .bold, color: white),
+      titleSmall: TextStyle(fontSize: 14, fontWeight: .bold, color: white),
+    ),
   );
 }
