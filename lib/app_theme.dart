@@ -12,7 +12,11 @@ class AppTheme {
     appBarTheme: AppBarThemeData(
       backgroundColor: black,
       foregroundColor: primary,
-      titleTextStyle: TextStyle(fontSize: 20, fontWeight: .bold, color: primary),
+      titleTextStyle: TextStyle(
+        fontSize: 20,
+        fontWeight: .bold,
+        color: primary,
+      ),
       centerTitle: true,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -20,6 +24,23 @@ class AppTheme {
       type: .fixed,
       showUnselectedLabels: false,
       selectedItemColor: black,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(
+        fontSize: 16,
+        fontWeight: .w500,
+        color: white.withValues(alpha: 0.8),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: .circular(10),
+        borderSide: BorderSide(color: primary),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: .circular(10),
+        borderSide: BorderSide(color: primary),
+      ),
+      filled: true,
+      fillColor: black.withValues(alpha: 0.7),
     ),
     textTheme: TextTheme(
       headlineSmall: TextStyle(fontSize: 24, fontWeight: .bold, color: black),

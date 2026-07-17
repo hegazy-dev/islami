@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:islami/app_theme.dart';
 import 'package:islami/tabs/quran/quran_service.dart';
 import 'package:islami/tabs/quran/sura.dart';
 import 'package:islami/tabs/quran/sura_details_screen.dart';
@@ -10,6 +12,23 @@ class QuranTab extends StatelessWidget {
     return Column(
       crossAxisAlignment: .start,
       children: [
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: TextField(
+            decoration: InputDecoration(
+              prefixIcon: SvgPicture.asset(
+                'assets/icons/quran.svg',
+                colorFilter: .mode(AppTheme.primary, .srcIn),
+                height: 28,
+                width: 28,
+                fit: .scaleDown,
+              ),
+
+              hintText: 'Sura Name',
+            ),
+          ),
+        ),
+        SizedBox(height: 20),
         Padding(
           padding: EdgeInsets.only(left: 20, bottom: 10),
           child: Text(
