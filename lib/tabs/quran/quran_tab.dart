@@ -6,15 +6,24 @@ import 'package:islami/tabs/quran/sura.dart';
 import 'package:islami/tabs/quran/sura_details_screen.dart';
 import 'package:islami/tabs/quran/sura_item.dart';
 
-class QuranTab extends StatelessWidget {
+class QuranTab extends StatefulWidget {
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
   @override
   Widget build(BuildContext context) {
+
+    TextTheme textTheme = Theme.of(context).textTheme;
+
     return Column(
       crossAxisAlignment: .start,
       children: [
         Padding(
           padding: EdgeInsets.all(20),
           child: TextField(
+            style: textTheme.titleMedium,
             decoration: InputDecoration(
               prefixIcon: SvgPicture.asset(
                 'assets/icons/quran.svg',
@@ -26,6 +35,10 @@ class QuranTab extends StatelessWidget {
 
               hintText: 'Sura Name',
             ),
+            onChanged: (quere) {
+              QuranService.searchSura(quere);
+              setState(() {});
+            },
           ),
         ),
         SizedBox(height: 20),
@@ -33,17 +46,17 @@ class QuranTab extends StatelessWidget {
           padding: EdgeInsets.only(left: 20, bottom: 10),
           child: Text(
             'Suras List',
-            style: Theme.of(context).textTheme.titleMedium,
+            style: textTheme.titleMedium,
           ),
         ),
         Expanded(
           child: ListView.separated(
             padding: EdgeInsets.symmetric(horizontal: 20),
             itemBuilder: (_, index) =>
-                SuraItem(QuranService.getSuraFromIndex(index)),
+                SuraItem(QuranService.suraSearchResults[index]),
             separatorBuilder: (_, _) =>
                 Divider(thickness: 1, height: 20, indent: 40, endIndent: 40),
-            itemCount: 114,
+            itemCount: QuranService.suraSearchResults.length,
           ),
         ),
       ],
