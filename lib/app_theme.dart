@@ -43,6 +43,7 @@ class AppTheme {
       fillColor: black.withValues(alpha: 0.7),
     ),
     textTheme: TextTheme(
+      headlineMedium: TextStyle(fontSize: 36, fontWeight: .bold, color: white),
       headlineSmall: TextStyle(fontSize: 24, fontWeight: .bold, color: black),
       titleLarge: TextStyle(fontSize: 20, fontWeight: .bold, color: white),
       titleMedium: TextStyle(fontSize: 16, fontWeight: .bold, color: white),
