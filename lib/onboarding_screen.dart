@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islami/app_theme.dart';
 import 'package:islami/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatelessWidget {
   static const String routeName = '/';
@@ -274,7 +275,11 @@ class OnboardingScreen extends StatelessWidget {
         style: textTheme.titleMedium?.copyWith(color: AppTheme.primary),
       ),
 
-      onDone: () {
+      onDone: () async {
+        final prefs = await SharedPreferences.getInstance();
+
+        await prefs.setBool('isFirstTime', false);
+
         Navigator.pushReplacementNamed(context, HomeScreen.routeName);
       },
 
